@@ -1,14 +1,13 @@
-import { useEffect } from 'react'
-import { ThemeProvider } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
-import theme from './theme'
-import { useRoutes } from 'react-router-dom'
-import Routes from './app.routes'
-import Container from '@mui/material/Container'
-import Layout from './Layout'
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './theme';
+import { useRoutes } from 'react-router-dom';
+import Routes from './app.routes';
+import Container from '@mui/material/Container';
+import Layout from './Layout';
 
 export default function App() {
-    const myRoutes = useRoutes(Routes)
+    const myRoutes = useRoutes(Routes);
 
     return (
         <>
@@ -18,5 +17,5 @@ export default function App() {
                 <Container maxWidth="xl">{myRoutes}</Container>
             </ThemeProvider>
         </>
-    )
+    );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import {
     AppBar,
     Toolbar,
@@ -9,27 +9,27 @@ import {
     MenuItem,
     ListItemText,
     Button,
-} from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
-import Routes from './app.routes'
-import { Outlet, Link } from 'react-router-dom'
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import Routes from './app.routes';
+import { Outlet, Link } from 'react-router-dom';
 
 export default function Layout() {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
     const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
         if (
             event.type === 'keydown' &&
             ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
         ) {
-            return
+            return;
         }
 
-        setIsOpen(open)
-    }
+        setIsOpen(open);
+    };
 
     const activeRoute = (routeName: any) => {
-        return window.location.pathname === routeName ? true : false
-    }
+        return window.location.pathname === routeName ? true : false;
+    };
     return (
         <>
             <AppBar position="static">
@@ -59,12 +59,12 @@ export default function Layout() {
                                         <ListItemText primary={prop.sidebarName} />
                                     </MenuItem>
                                 </Link>
-                            )
+                            );
                         })}
                     </MenuList>
                 </div>
             </Drawer>
             <Outlet></Outlet>
         </>
-    )
+    );
 }
