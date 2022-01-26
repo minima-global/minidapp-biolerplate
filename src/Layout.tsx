@@ -13,23 +13,23 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import Routes from './app.routes';
 import { Outlet, Link } from 'react-router-dom';
+import { callStatusSingle } from './minima/rpc-commands';
+import useMinimaBlockNumber from './minima/useMinimaBlockNumber';
 
 export default function Layout() {
     const [isOpen, setIsOpen] = useState(false);
-    const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-        if (
-            event.type === 'keydown' &&
-            ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
-        ) {
-            return;
-        }
+    const blockNumber = useMinimaBlockNumber();
 
+    const toggleDrawer = (open: boolean) => () => {
         setIsOpen(open);
     };
 
     const activeRoute = (routeName: any) => {
         return window.location.pathname === routeName ? true : false;
     };
+
+    console.log('blockNumber', blockNumber);
+
     return (
         <>
             <AppBar position="static">
@@ -50,7 +50,7 @@ export default function Layout() {
                 </Toolbar>
             </AppBar>
             <Drawer open={isOpen} onClose={toggleDrawer(false)}>
-                <div role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+                <div role="presentation" onClick={toggleDrawer(false)}>
                     <MenuList>
                         {Routes.map((prop, key) => {
                             return (
@@ -63,6 +63,9 @@ export default function Layout() {
                         })}
                     </MenuList>
                 </div>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    Blocknumber: {blockNumber}
+                </Typography>
             </Drawer>
             <Outlet></Outlet>
         </>
