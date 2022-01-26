@@ -1,36 +1,22 @@
-import {
-    AppBar,
-    Toolbar,
-    Typography,
-    IconButton,
-    Drawer,
-    MenuList,
-    MenuItem,
-    ListItemText,
-    Button,
-} from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
+import { useEffect } from 'react'
+import { ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+import theme from './theme'
+import { useRoutes } from 'react-router-dom'
+import Routes from './app.routes'
+import Container from '@mui/material/Container'
+import Layout from './Layout'
 
-function App() {
+export default function App() {
+    const myRoutes = useRoutes(Routes)
+
     return (
-        <AppBar position="static">
-            <Toolbar>
-                <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    sx={{ mr: 2 }}
-                    onClick={console.log}
-                >
-                    <MenuIcon />
-                </IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Minidapp Boilerplate
-                </Typography>
-            </Toolbar>
-        </AppBar>
+        <>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Layout />
+                <Container maxWidth="xl">{myRoutes}</Container>
+            </ThemeProvider>
+        </>
     )
 }
-
-export default App
