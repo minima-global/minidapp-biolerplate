@@ -17,7 +17,7 @@ const useMinimaBlockNumber = () => {
                     setMinimaBlockNumber(-1);
                 }
             );
-        }, 3000);
+        }, 5000);
     }, []);
 
     return minimaBlockNumber;

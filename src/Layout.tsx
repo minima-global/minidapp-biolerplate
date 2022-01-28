@@ -33,39 +33,27 @@ export default function Layout() {
     return (
         <>
             <AppBar position="static">
+                <Toolbar>Minima Boilerplate</Toolbar>
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                        onClick={toggleDrawer(true)}
-                    >
+                    <IconButton color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Minidapp Boilerplate
-                    </Typography>
+                    <Typography>Page Name</Typography>
                 </Toolbar>
             </AppBar>
             <Drawer open={isOpen} onClose={toggleDrawer(false)}>
-                <div role="presentation" onClick={toggleDrawer(false)}>
-                    <MenuList>
-                        {Routes.map((prop, key) => {
-                            return (
-                                <Link to={prop.path} style={{ textDecoration: 'none' }} key={key}>
-                                    <MenuItem selected={activeRoute(prop.path)}>
-                                        <ListItemText primary={prop.sidebarName} />
-                                    </MenuItem>
-                                </Link>
-                            );
-                        })}
-                    </MenuList>
-                </div>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Blocknumber: {blockNumber}
-                </Typography>
+                <MenuList>
+                    {Routes.map((prop, key) => {
+                        return (
+                            <Link to={prop.path} key={key}>
+                                <MenuItem selected={activeRoute(prop.path)}>
+                                    <ListItemText primary={prop.sidebarName} />
+                                </MenuItem>
+                            </Link>
+                        );
+                    })}
+                </MenuList>
+                <Typography>Blocknumber: {blockNumber}</Typography>
             </Drawer>
             <Outlet></Outlet>
         </>
