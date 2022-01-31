@@ -4,7 +4,7 @@ import theme from './theme/theme';
 import { useRoutes } from 'react-router-dom';
 import Routes from './app.routes';
 import Container from '@mui/material/Container';
-import Layout from './Layout';
+import Layout from './layout/Layout';
 
 export default function App() {
     const myRoutes = useRoutes(Routes);
@@ -14,7 +14,6 @@ export default function App() {
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <Layout />
-                <Container maxWidth="xl">{myRoutes}</Container>
             </ThemeProvider>
         </>
     );

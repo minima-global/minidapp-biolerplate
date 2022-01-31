@@ -1,5 +1,6 @@
 import ManropRegular from './Manrope-Regular.woff2';
 import FrostedBlue from './frosted-blue.jpg';
+import uiBackground from './ui-background.png';
 import { createTheme } from '@mui/material/styles';
 
 // A custom theme for this app
@@ -12,7 +13,7 @@ let theme = createTheme({
             main: '#ff512f',
         },
         background: {
-            default: '#e9e9eb',
+            default: 'rgba(22, 24, 28, 0.05)',
         },
         text: {
             primary: '#363a3f',
@@ -23,6 +24,14 @@ let theme = createTheme({
         success: {
             main: '#b6f4ee',
         },
+
+        neutral: {
+            main: '#64748B',
+            contrastText: '#fff',
+        },
+
+        darkBlack: { main: '#0D0E10' },
+        menu: { main: 'rgba(255, 255, 255, 0.95)' },
     },
     typography: {
         fontFamily: ['Manrope-regular'].join(','),
@@ -41,7 +50,7 @@ let theme = createTheme({
         },
     },
     shape: {
-        borderRadius: 12,
+        borderRadius: 8,
     },
 
     spacing: 8,
@@ -52,11 +61,6 @@ let theme = createTheme({
             @font-face {
                 font-family: Manrope-regular;
                 src: url(${ManropRegular}) format('woff2');
-            }
-
-            body {
-                background-image: url(${FrostedBlue});
-                background-size: 100%;
             }
           `,
         },
@@ -82,6 +86,13 @@ theme = createTheme(theme, {
                 },
             },
         },
+        MuiDrawer: {
+            styleOverrides: {
+                paperAnchorLeft: {
+                    backgroundColor: theme.palette.menu.main,
+                },
+            },
+        },
     },
 });
 
@@ -90,13 +101,28 @@ export default theme;
 declare module '@mui/material/styles' {
     interface Theme {
         status: {
-            danger: string;
+            danger: React.CSSProperties['color'];
         };
     }
-    // allow configuration using `createTheme`
-    interface ThemeOptions {
-        status?: {
-            danger?: string;
-        };
+
+    interface Palette {
+        neutral: Palette['primary'];
+        darkBlack: Palette['primary'];
+        menu: Palette['primary'];
+    }
+    interface PaletteOptions {
+        neutral: PaletteOptions['primary'];
+    }
+
+    interface PaletteColor {
+        darker?: string;
+    }
+    interface SimplePaletteColorOptions {
+        darker?: string;
+    }
+
+    interface PaletteOptions {
+        darkBlack?: PaletteOptions['primary'];
+        menu?: PaletteOptions['primary'];
     }
 }
