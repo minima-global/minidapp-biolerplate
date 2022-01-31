@@ -1,12 +1,6 @@
-import { useState } from 'react';
 import {
-    AppBar,
     Toolbar,
     Typography,
-    IconButton,
-    Drawer,
-    MenuList,
-    MenuItem,
     ListItemText,
     Button,
     Box,
@@ -17,9 +11,6 @@ import {
     Radio,
     Grid,
 } from '@mui/material';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { useNavigate } from 'react-router-dom';
 import Routes from '../app.routes';
 import useMinimaBlockNumber from '../minima/useMinimaBlockNumber';
@@ -59,7 +50,7 @@ const SideMenu = () => {
             </List>
 
             <Typography pl={2} mt={10}>
-                Blocknumber: {blockNumber}
+                Latest Block: {blockNumber}
             </Typography>
             <Button variant="contained" sx={{ ml: 2, mr: 2, mt: 4 }}>
                 Urgent CTA
