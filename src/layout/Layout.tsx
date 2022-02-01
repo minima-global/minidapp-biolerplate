@@ -1,21 +1,8 @@
 import { useState } from 'react';
-import {
-    AppBar,
-    Toolbar,
-    Typography,
-    IconButton,
-    Drawer,
-    MenuList,
-    MenuItem,
-    ListItemText,
-    Button,
-    Box,
-    Container,
-} from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Drawer, Box, Container } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Routes from '../app.routes';
 import { useRoutes } from 'react-router-dom';
-import { callStatusSingle } from '../minima/rpc-commands';
 import SideMenu from './SideMenu';
 
 const drawerWidth = 240;
@@ -24,16 +11,8 @@ export default function Layout() {
     const myRoutes = useRoutes(Routes);
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggleDrawer = (open: boolean) => () => {
-        setIsOpen(open);
-    };
-
     const handleDrawerToggle = () => {
         setIsOpen((op) => !op);
-    };
-
-    const activeRoute = (routeName: any) => {
-        return window.location.pathname === routeName ? true : false;
     };
 
     return (
@@ -47,7 +26,7 @@ export default function Layout() {
             >
                 <Toolbar sx={{ bgcolor: 'text.secondary' }}>Minima Boilerplate</Toolbar>
                 <Toolbar>
-                    <IconButton color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+                    <IconButton color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
                         <MenuIcon />
                     </IconButton>
                     <Typography>Page Name</Typography>
@@ -82,7 +61,7 @@ export default function Layout() {
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >
-                    <SideMenu></SideMenu>
+                    <SideMenu handleDrawerToggle={handleDrawerToggle}></SideMenu>
                 </Drawer>
                 <Drawer
                     variant="permanent"
@@ -92,7 +71,7 @@ export default function Layout() {
                     }}
                     open
                 >
-                    <SideMenu></SideMenu>
+                    <SideMenu handleDrawerToggle={handleDrawerToggle}></SideMenu>
                 </Drawer>
             </Box>
         </>

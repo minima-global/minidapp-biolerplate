@@ -1,6 +1,8 @@
 import Page1 from './pages/Page1';
 import Page2 from './pages/Page2';
 import Page3 from './pages/Page3';
+import Balance from './pages/Balance';
+import Send from './pages/Send';
 
 const Routes = [
     {
@@ -17,6 +19,16 @@ const Routes = [
         path: '/page3',
         sidebarName: 'Page 3',
         element: <Page3></Page3>,
+    },
+    {
+        path: '/balance',
+        sidebarName: 'Balance',
+        element: <Balance></Balance>,
+    },
+    {
+        path: '/send',
+        sidebarName: 'Send',
+        element: <Send></Send>,
     },
 ];
 

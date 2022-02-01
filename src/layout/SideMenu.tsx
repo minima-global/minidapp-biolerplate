@@ -13,12 +13,16 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Routes from '../app.routes';
-import useMinimaBlockNumber from '../minima/useMinimaBlockNumber';
+import useBlockNumber from '../minima/useBlockNumber';
 import { ReactComponent as LandscapeLogo } from './LANDSCAPE-01.svg';
 
-const SideMenu = () => {
+interface IProps {
+    handleDrawerToggle: () => void;
+}
+
+const SideMenu = ({ handleDrawerToggle }: IProps) => {
     const navigate = useNavigate();
-    const blockNumber = useMinimaBlockNumber();
+    const blockNumber = useBlockNumber();
     const activeRoute = (routeName: any) => {
         return window.location.pathname === routeName ? true : false;
     };
@@ -27,6 +31,7 @@ const SideMenu = () => {
 
     const onMenuItemClicked = (path: string) => () => {
         navigate(path);
+        handleDrawerToggle();
     };
 
     return (
@@ -38,7 +43,7 @@ const SideMenu = () => {
             <List>
                 {Routes.map((route, i) => {
                     return (
-                        <ListItem button onClick={onMenuItemClicked(route.path)}>
+                        <ListItem button onClick={onMenuItemClicked(route.path)} key={i}>
                             <ListItemIcon>
                                 <Radio sx={{ p: 0 }} checked={activeRoute(route.path)} />
                             </ListItemIcon>
