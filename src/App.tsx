@@ -1,10 +1,11 @@
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import theme from './theme';
+import theme from './theme/theme';
 import { useRoutes } from 'react-router-dom';
 import Routes from './app.routes';
 import Container from '@mui/material/Container';
-import Layout from './Layout';
+import Layout from './layout/Layout';
+import { SnackbarProvider } from 'notistack';
 
 export default function App() {
     const myRoutes = useRoutes(Routes);
@@ -12,9 +13,10 @@ export default function App() {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Layout />
-                <Container maxWidth="xl">{myRoutes}</Container>
+                <SnackbarProvider maxSnack={3}>
+                    <CssBaseline />
+                    <Layout />
+                </SnackbarProvider>
             </ThemeProvider>
         </>
     );

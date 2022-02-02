@@ -1,8 +1,17 @@
 import Page1 from './pages/Page1';
 import Page2 from './pages/Page2';
 import Page3 from './pages/Page3';
+import Balance from './pages/Balance';
+import Send from './pages/Send';
+import Terminal from './pages/Terminal';
 
-const Routes = [
+export interface RouteType {
+    path: string;
+    sidebarName: string;
+    element: JSX.Element;
+}
+
+const Routes: RouteType[] = [
     {
         path: '/',
         sidebarName: 'Page 1',
@@ -17,6 +26,21 @@ const Routes = [
         path: '/page3',
         sidebarName: 'Page 3',
         element: <Page3></Page3>,
+    },
+    {
+        path: '/balance',
+        sidebarName: 'Balance',
+        element: <Balance></Balance>,
+    },
+    {
+        path: '/send',
+        sidebarName: 'Send',
+        element: <Send></Send>,
+    },
+    {
+        path: '/terminal',
+        sidebarName: 'Terminal',
+        element: <Terminal></Terminal>,
     },
 ];
 
