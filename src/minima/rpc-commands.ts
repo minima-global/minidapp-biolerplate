@@ -81,3 +81,15 @@ export const callHelp = () => {
         },
     }).then((result) => result.json());
 };
+
+// call any generic minima command
+export const callCommand = (command: string) => {
+    const url = `${RPCHOST}${command}`;
+    return fetch(url, {
+        method: 'GET',
+        mode: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then((result) => result.json());
+};

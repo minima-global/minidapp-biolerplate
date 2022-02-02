@@ -5,7 +5,13 @@ import Balance from './pages/Balance';
 import Send from './pages/Send';
 import Terminal from './pages/Terminal';
 
-const Routes = [
+export interface RouteType {
+    path: string;
+    sidebarName: string;
+    element: JSX.Element;
+}
+
+const Routes: RouteType[] = [
     {
         path: '/',
         sidebarName: 'Page 1',
