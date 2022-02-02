@@ -3,6 +3,7 @@ import Page2 from './pages/Page2';
 import Page3 from './pages/Page3';
 import Balance from './pages/Balance';
 import Send from './pages/Send';
+import Terminal from './pages/Terminal';
 
 const Routes = [
     {
@@ -29,6 +30,11 @@ const Routes = [
         path: '/send',
         sidebarName: 'Send',
         element: <Send></Send>,
+    },
+    {
+        path: '/terminal',
+        sidebarName: 'Terminal',
+        element: <Terminal></Terminal>,
     },
 ];
 
