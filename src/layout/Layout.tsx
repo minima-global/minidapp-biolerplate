@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, IconButton, Drawer, Box, Container } from 
 import MenuIcon from '@mui/icons-material/Menu';
 import Routes from '../app.routes';
 import { RouteType } from './../app.routes';
-import { useRoutes } from 'react-router-dom';
+import { useLocation, useRoutes } from 'react-router-dom';
 import SideMenu from './SideMenu';
 
 const drawerWidth = 240;
@@ -20,6 +20,8 @@ export default function Layout() {
     // Use the react-router hook called 'useLocation' to get the current path
     // Use getPageName function to get current page
     // Add page name to html below
+
+    const location = useLocation().pathname;
 
     const getPageName = (allRoutes: RouteType[], currentPath: string) => {
         const foundRoute = allRoutes.find((route) => route.path === currentPath);
@@ -44,7 +46,7 @@ export default function Layout() {
                     <IconButton color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
                         <MenuIcon />
                     </IconButton>
-                    <Typography>Page Name</Typography>
+                    <Typography>{getPageName(Routes, location)}</Typography>
                 </Toolbar>
             </AppBar>
 
