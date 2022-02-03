@@ -97,8 +97,7 @@ theme = createTheme(theme, {
                     backgroundColor: 'rgba(255, 255, 255, 0.5)',
                     borderRadius: 8,
                     input: {
-                        paddingLeft: 16,
-                        borderWidth: 50,
+                        paddingLeft: 16,                        
                         borderRadius: 8,
                         fontWeight: '400',
                         fontSize: '1rem',
