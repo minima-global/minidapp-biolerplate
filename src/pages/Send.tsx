@@ -57,14 +57,18 @@ const Send = () => {
 
     return (
         <>
-            <h1>Send</h1>
-            <Button variant="contained" onClick={onSendClicked}>
+            <h1>Form</h1>
+            {/* <Button variant="contained" onClick={onSendClicked}>
                 Send
-            </Button>
-            <TextField fullWidth label="fullWidth" id="fullWidth" />
+            </Button> */}
+            <TextField fullWidth placeholder="Address" id="address" />
             <div id="reader" ref={readerDiv}></div>
         </>
     );
 };
 
 export default Send;
+
+const MyCustomBadge = () => {
+    return <div>My Custom Badge</div>;
+};
