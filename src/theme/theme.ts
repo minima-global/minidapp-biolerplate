@@ -24,12 +24,10 @@ let theme = createTheme({
         success: {
             main: '#b6f4ee',
         },
-
         neutral: {
             main: '#64748B',
             contrastText: '#fff',
         },
-
         darkBlack: { main: '#0D0E10' },
         menu: { main: 'rgba(255, 255, 255, 0.95)' },
     },
@@ -93,6 +91,30 @@ theme = createTheme(theme, {
                 },
             },
         },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                    borderRadius: 8,
+                    input: {
+                        paddingLeft: 16,
+                        borderWidth: 50,
+                        borderRadius: 8,
+                        fontWeight: '400',
+                        fontSize: '1rem',
+                        '&::placeholder': {
+                            color: '#91919D',
+                            fontSize: '1rem',
+                            fontWeight: '100'
+                        },
+                        '&:focus': {
+                            backgroundColor: 'rgba(255, 255, 255, 0.8)'
+                        }
+                    },
+                    
+                }
+            }
+        }
     },
 });
 
