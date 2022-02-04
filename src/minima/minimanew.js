@@ -22,7 +22,7 @@ var Minima = {
      * Updates minima url if its in the browser search params
      */
     setRpcHost: function (port) {
-        const newPort = this.form.getParams('RPCHOST');
+        const newPort = this.form.getParams('RPCPORT');
         if (newPort) {
             this.rpchost = `http://127.0.0.1:${newPort}/`;
         }
