@@ -29,8 +29,9 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "build-server": "npm run build && esbuild server.js --bundle --outfile=server-build.js --platform=node --target=es6 && mkdir dist && cp -r build dist && cp server-build.js dist && zip -r boilerplate.zip dist"
+        "build-zip": "npm run build && zip -r build.zip build"
     },
+    "homepage": ".",
     "eslintConfig": {
         "extends": [
             "react-app",
@@ -56,8 +57,5 @@
         "singleQuote": true,
         "printWidth": 120
     },
-    "devDependencies": {
-        "esbuild": "^0.14.18",
-        "express-http-proxy": "^1.6.3"
-    }
+    "devDependencies": {}
 }

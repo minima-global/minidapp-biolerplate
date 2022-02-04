@@ -18,7 +18,7 @@ const Terminal = () => {
 
     useEffect(() => {
         callCommand('status').then(
-            (data) => {
+            (data: any) => {
                 console.log(data);
                 if (data.status) {
                     const welcome = `
@@ -62,7 +62,7 @@ const Terminal = () => {
             typedStuff = '';
 
             callCommand(command).then(
-                (data) => {
+                (data: any) => {
                     console.log(data);
                     setCommand('');
                     if (data.status) {
@@ -183,7 +183,7 @@ const Terminal = () => {
                     Send command
                 </Button>
 
-                <Button onClick={() => console.log(commandHistory)}>Get Command History</Button>
+                {/* <Button onClick={() => console.log(commandHistory)}>Get Command History</Button> */}
             </form>
 
             {/* Added as a spacer (wrong i know!) */}
