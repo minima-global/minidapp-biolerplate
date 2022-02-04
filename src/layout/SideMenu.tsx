@@ -13,8 +13,9 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Routes from '../app.routes';
-import useBlockNumber from '../minima/useBlockNumber';
+// import useBlockNumber from '../minima/useBlockNumber';
 import { ReactComponent as LandscapeLogo } from './LANDSCAPE-01.svg';
+import useMinimaInit from '../minima/useMinimaInit';
 
 interface IProps {
     handleDrawerToggle: () => void;
@@ -22,12 +23,13 @@ interface IProps {
 
 const SideMenu = ({ handleDrawerToggle }: IProps) => {
     const navigate = useNavigate();
-    const blockNumber = useBlockNumber();
+    // const blockNumber = useBlockNumber();
+    const connected = useMinimaInit();
     const activeRoute = (routeName: any) => {
         return window.location.pathname === routeName ? true : false;
     };
 
-    console.log('blockNumber', blockNumber);
+    // console.log('blockNumber', blockNumber);
 
     const onMenuItemClicked = (path: string) => () => {
         navigate(path);
@@ -55,7 +57,8 @@ const SideMenu = ({ handleDrawerToggle }: IProps) => {
             </List>
 
             <Typography pl={2} mt={10}>
-                Latest Block: {blockNumber}
+                {/* Latest Block: {blockNumber} */}
+                {connected ? 'Connected' : 'Not Connected'}
             </Typography>
             <Button variant="contained" sx={{ ml: 2, mr: 2, mt: 4 }}>
                 Urgent CTA

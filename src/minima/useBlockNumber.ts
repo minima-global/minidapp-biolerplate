@@ -7,7 +7,7 @@ const useBlockNumber = () => {
     useEffect(() => {
         setInterval(() => {
             callStatus().then(
-                (data) => {
+                (data: any) => {
                     setBlockNumber(data.response.chain.block);
                 },
                 (err) => {

@@ -14,17 +14,19 @@ const useBalance = () => {
     const [balance, setBalance] = useState<Token[]>([]);
 
     useEffect(() => {
-        callBalance().then((data) => {
-            if (data.status) {
-                setBalance(data.response);
-            }
-        }).catch((err) => {
-            console.error(err);
-            setBalance([]);
-        });
+        callBalance()
+            .then((data: any) => {
+                if (data.status) {
+                    setBalance(data.response);
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                setBalance([]);
+            });
         setInterval(() => {
             callBalance().then(
-                (data) => {
+                (data: any) => {
                     if (data.status) {
                         setBalance(data.response);
                     }
