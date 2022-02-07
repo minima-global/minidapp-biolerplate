@@ -113,6 +113,15 @@ theme = createTheme(theme, {
                     
                 }
             }
+        },
+        MuiListItemButton: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    borderRadius: 8,
+                    minHeight: 64
+                }
+            }
         }
     },
 });
