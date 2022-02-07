@@ -10,8 +10,8 @@ const useBalance = () => {
         callBalance()
             .then((data: any) => {
                 if (data.status) {
-                    // console.log(data.response.balance);
-                    setBalance(data.response.balance);
+                    console.log(data.response);
+                    setBalance(data.response);
                 }
             })
             .catch((err) => {
@@ -22,7 +22,7 @@ const useBalance = () => {
             callBalance().then(
                 (data: any) => {
                     if (data.status) {
-                        setBalance(data.response.balance);
+                        setBalance(data.response);
                     }
                 },
                 (err) => {
