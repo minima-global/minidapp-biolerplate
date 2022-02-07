@@ -1,23 +1,17 @@
 import { useState, useEffect } from 'react';
+import { MinimaToken } from '../types/minima';
 import { callBalance } from './rpc-commands';
 
-export type Token = {
-    token: string;
-    tokenid: string;
-    confirmed: string;
-    unconfirmed: string;
-    sendable: string;
-    total: string;
-};
 
 const useBalance = () => {
-    const [balance, setBalance] = useState<Token[]>([]);
+    const [balance, setBalance] = useState<MinimaToken[]>([]);
 
     useEffect(() => {
         callBalance()
             .then((data: any) => {
                 if (data.status) {
-                    setBalance(data.response);
+                    // console.log(data.response.balance);
+                    setBalance(data.response.balance);
                 }
             })
             .catch((err) => {
@@ -28,7 +22,7 @@ const useBalance = () => {
             callBalance().then(
                 (data: any) => {
                     if (data.status) {
-                        setBalance(data.response);
+                        setBalance(data.response.balance);
                     }
                 },
                 (err) => {
