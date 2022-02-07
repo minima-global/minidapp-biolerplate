@@ -11,7 +11,7 @@ import {
     Radio,
     Grid,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Routes from '../app.routes';
 // import useBlockNumber from '../minima/useBlockNumber';
 import { ReactComponent as LandscapeLogo } from './LANDSCAPE-01.svg';
@@ -23,13 +23,12 @@ interface IProps {
 
 const SideMenu = ({ handleDrawerToggle }: IProps) => {
     const navigate = useNavigate();
+    const routerLocation = useLocation();
     // const blockNumber = useBlockNumber();
     const connected = useMinimaInit();
     const activeRoute = (routeName: any) => {
-        return window.location.pathname === routeName ? true : false;
+        return routerLocation.pathname === routeName ? true : false;
     };
-
-    // console.log('blockNumber', blockNumber);
 
     const onMenuItemClicked = (path: string) => () => {
         navigate(path);

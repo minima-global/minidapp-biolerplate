@@ -32,6 +32,7 @@
         "build-zip": "npm run build && zip -r build.zip build"
     },
     "homepage": ".",
+    "proxy": "http://localhost:9002",
     "eslintConfig": {
         "extends": [
             "react-app",
