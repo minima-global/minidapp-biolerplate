@@ -27,21 +27,21 @@ const Routes: RouteType[] = [
         sidebarName: 'Page 3',
         element: <Page3></Page3>,
     },
-    {
-        path: '/balance',
-        sidebarName: 'Balance',
-        element: <Balance></Balance>,
-    },
-    {
-        path: '/send',
-        sidebarName: 'Send',
-        element: <Send></Send>,
-    },
-    {
-        path: '/terminal',
-        sidebarName: 'Terminal',
-        element: <Terminal></Terminal>,
-    },
+    // {
+    //     path: '/balance',
+    //     sidebarName: 'Balance',
+    //     element: <Balance></Balance>,
+    // },
+    // {
+    //     path: '/send',
+    //     sidebarName: 'Send',
+    //     element: <Send></Send>,
+    // },
+    // {
+    //     path: '/terminal',
+    //     sidebarName: 'Terminal',
+    //     element: <Terminal></Terminal>,
+    // },
 ];
 
 export default Routes;
